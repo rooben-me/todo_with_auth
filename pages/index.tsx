@@ -16,9 +16,6 @@ const TodosContainer: React.FunctionComponent<ITodosContainerProps> = () => {
       <div className="w-full h-screen flex justify-center mx-auto max-w-lg items-center p-4">
         <Auth
           supabaseClient={supabase}
-          providers={["google", "github"]}
-          socialLayout="vertical"
-          socialButtonSize="xlarge"
         />
       </div>
     </>
