@@ -13,10 +13,11 @@ const TodosContainer: React.FunctionComponent<ITodosContainerProps> = () => {
   });
   return (
     <>
-      <div className="w-full h-screen flex justify-center mx-auto max-w-lg items-center p-4">
-        <Auth
-          supabaseClient={supabase}
-        />
+      <div className="w-full h-screen flex flex-col justify-center mx-auto max-w-lg items-center p-4">
+        <h1 className="text-center font-semibold text-xl mb-6">
+          Todo App for AsvaLabs
+        </h1>
+        <Auth supabaseClient={supabase} />
       </div>
     </>
   );

@@ -49,7 +49,7 @@ const Todo: React.FunctionComponent<ITodosContainerProps> = () => {
       {user && (
         <div>
           <div className=" mt-4 p-4 flex justify-between w-full">
-            <h1 className="w-full text-xl font-medium">Asva Todo test</h1>
+            <h1 className="w-full text-2xl font-medium">Asva Todo app</h1>
             <Button
               onClick={async () => {
                 const { error } = await supabase.auth.signOut();

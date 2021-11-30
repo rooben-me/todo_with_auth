@@ -35,12 +35,13 @@ export const TodoItem: React.FC<ITodoItemProps> = ({
           </Tooltip>
 
           <Popconfirm
+            placement="topRight"
             title="Are you sure you want to delete?"
             onConfirm={() => {
               onTodoRemoval(todo);
             }}
           >
-            <Tooltip title="Remove Todo">
+            <Tooltip placement="bottom" title="Remove Todo">
               <Button
                 className="remove-todo-button"
                 shape="circle"
