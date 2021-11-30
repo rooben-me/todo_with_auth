@@ -25,6 +25,12 @@
       "@redux": ["src/redux"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "lib/initSupabase.js",
+    "lib/initSupabase.js"
+  ],
   "exclude": ["node_modules"]
 }
