@@ -18,7 +18,7 @@ import { message } from "antd";
 
 interface ITodosContainerProps {}
 
-const TodosContainer: React.FunctionComponent<ITodosContainerProps> = () => {
+const Todo: React.FunctionComponent<ITodosContainerProps> = () => {
   const { user } = Auth.useUser();
 
   const todos: ITodo[] = useSelector((state: RootState) => state.todo.todos);
@@ -42,16 +42,37 @@ const TodosContainer: React.FunctionComponent<ITodosContainerProps> = () => {
 
   return (
     <>
-      <div className="w-full h-screen flex justify-center mx-auto max-w-lg items-center p-4">
-        <Auth
-          supabaseClient={supabase}
-          providers={["google", "github"]}
-          socialLayout="vertical"
-          socialButtonSize="xlarge"
-        />
-      </div>
+      {user && (
+        <div>
+          <div className=" mt-4 p-4 flex justify-between w-full">
+            <h1 className="w-full text-xl font-medium">Asva Todo test</h1>
+            <Button
+              onClick={async () => {
+                const { error } = await supabase.auth.signOut();
+                if (error) console.log("Error logging out:", error.message);
+              }}
+            >
+              Log out
+            </Button>
+          </div>
+
+          <div className="mt-8 px-4">
+            <Card title="Create a new todo">
+              <AddTodoForm onFormSubmit={handleFormSubmit} />
+            </Card>
+
+            <Card className="mt-4" title="Todo List">
+              <TodoList
+                todos={todos}
+                onTodoRemoval={handleRemoveTodo}
+                onTodoToggle={handleToggleTodoStatus}
+              />
+            </Card>
+          </div>
+        </div>
+      )}
     </>
   );
 };
 
-export default TodosContainer;
+export default Todo;
