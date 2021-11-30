@@ -1,0 +1,20 @@
+{
+  "name": "asvaLabs-Todo",
+  "plugins": [
+    {
+      "name": "Ant Design",
+      "description": "A design system for enterprise-level products. Create an efficient and enjoyable work experience.",
+      "url": "https://ant.design/docs/react/introduce"
+    },
+    {
+      "name": "CSS / styled-jsx",
+      "description": "Next.js comes with built-in support for CSS and styled-jsx. Styled-jsx is full, scoped and component-friendly CSS support for JSX (rendered on the server or the client).",
+      "url": "https://github.com/vercel/styled-jsx"
+    },
+    {
+      "name": "React Redux",
+      "description": "Redux helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.",
+      "url": "https://redux.js.org/introduction/getting-started"
+    }
+  ]
+}
