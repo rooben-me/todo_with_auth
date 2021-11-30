@@ -12,7 +12,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Provider store={store}>
       <PersistGate
-        loading={<Spin size="large" tip="Loading..." />}
+        loading={
+          <div className="h-screen w-full flex items-center justify-center">
+            <Spin size="large" tip="Loading..." />
+          </div>
+        }
         persistor={persistor}
       >
         <Component {...pageProps} />
