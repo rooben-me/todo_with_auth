@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Button } from "antd";
 
 import { supabase } from "../lib/initSupabase";
-import { Auth } from "@supabase/ui";
+import { useRouter } from "next/router";
 
 import { ITodo } from "@redux/store/todo/models/todo.model";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,7 +19,9 @@ import { message } from "antd";
 interface ITodosContainerProps {}
 
 const Todo: React.FunctionComponent<ITodosContainerProps> = () => {
-  const { user } = Auth.useUser();
+  //   const { user } = Auth.useUser();
+
+  const user = supabase.auth.user();
 
   const todos: ITodo[] = useSelector((state: RootState) => state.todo.todos);
 
@@ -40,6 +42,8 @@ const Todo: React.FunctionComponent<ITodosContainerProps> = () => {
     message.info("Todo state updated!");
   };
 
+  const router = useRouter();
+
   return (
     <>
       {user && (
@@ -49,6 +53,7 @@ const Todo: React.FunctionComponent<ITodosContainerProps> = () => {
             <Button
               onClick={async () => {
                 const { error } = await supabase.auth.signOut();
+                router.push("/");
                 if (error) console.log("Error logging out:", error.message);
               }}
             >
