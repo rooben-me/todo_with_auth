@@ -1,4 +1,4 @@
-# asvaLabs-Todo
+# Todo app with redux persists
 
 
 This project was generated with [superplate](https://github.com/pankod/superplate).
